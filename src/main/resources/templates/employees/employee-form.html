@@ -19,17 +19,23 @@
                 <div class="form-group">
                     <label>First Name</label>
                     <input class="form-control" type="text" th:field="*{firstName}" placeholder="First Name">
-                    <small th:each="err : ${#fields.errors('firstName')}" th:text="${err}" class="text-danger"> </small>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" class="text-danger"></li>
+                    </ul>
                 </div>
                 <div class="form-group">
                     <label>Last Name</label>
                     <input class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name">
-                    <small th:each="err : ${#fields.errors('lastName')}" th:text="${err}" class="text-danger"> </small>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('lastName')}" th:text="${err}" class="text-danger"></li>
+                    </ul>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
                     <input class="form-control" type="text" th:field="*{email}" placeholder="Email">
-                    <small th:each="err : ${#fields.errors('email')}" th:text="${err}" class="text-danger"> </small>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('email')}" th:text="${err}" class="text-danger"></li>
+                    </ul>
                 </div>
                 <div class="float-right">
                     <a class="btn btn-warning" th:href="@{/employees/list}">Back</a>

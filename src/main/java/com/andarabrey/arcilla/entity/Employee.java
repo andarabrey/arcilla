@@ -2,6 +2,7 @@ package com.andarabrey.arcilla.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -25,6 +26,7 @@ public class Employee
 
     @NotNull
     @Size(min = 8, message = "Minimal 8 Characters")
+    @Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Email format invalid")
     @Column(name = "email")
     private String email;
 

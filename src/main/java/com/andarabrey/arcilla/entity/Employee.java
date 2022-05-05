@@ -1,6 +1,8 @@
 package com.andarabrey.arcilla.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "employee")
@@ -11,12 +13,18 @@ public class Employee
     @Column(name = "id")
     private int Id;
 
+    @NotNull
+    @Size(min = 3, message = "Minimal 3 Characters")
     @Column(name = "first_name")
     private String firstName;
 
+    @NotNull
+    @Size(min = 3, message = "Minimal 3 Characters")
     @Column(name = "last_name")
     private String lastName;
 
+    @NotNull
+    @Size(min = 8, message = "Minimal 8 Characters")
     @Column(name = "email")
     private String email;
 

@@ -5,8 +5,10 @@ import com.andarabrey.arcilla.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -34,7 +36,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public String saveEmployee(@ModelAttribute("employee") Employee theEmployee){
+    public String saveEmployee(@Valid @ModelAttribute("employee") Employee theEmployee, BindingResult result){
+        if (result.hasErrors()){
+            return "employees/employee-form";
+        }
         employeeService.save(theEmployee);
 
         return "redirect:/employees/list";

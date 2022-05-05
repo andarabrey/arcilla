@@ -19,6 +19,8 @@
     <h3>Employee Directory</h3>
     <hr>
 
+    <a class="btn btn-primary mb-3" th:href="@{/employees/showFormForAdd}">Add Employee</a>
+
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
@@ -30,11 +32,9 @@
 
         <tbody>
         <tr th:each="tempEmployee : ${employees}">
-
             <td th:text="${tempEmployee.firstName}" />
             <td th:text="${tempEmployee.lastName}" />
             <td th:text="${tempEmployee.email}" />
-
         </tr>
         </tbody>
     </table>
